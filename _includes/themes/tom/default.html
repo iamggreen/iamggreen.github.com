@@ -23,9 +23,11 @@
       <a href="{{ HOME_PATH }}">{{ site.title }}</a>
 
       <a class="extra" href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a>
-      <a class="extra" href="{{ BASE_PATH }}{{ site.JB.pages_path }}">Pages</a>
-      <a class="extra" href="{{ BASE_PATH }}{{ site.JB.categories_path }}">Categories</a>
+      <a class="extra" href="{{ BASE_PATH }}/about.html">About</a>
+      <!--
+	  <a class="extra" href="{{ BASE_PATH }}{{ site.JB.categories_path }}">Categories</a>
       <a class="extra" href="{{ BASE_PATH }}{{ site.JB.tags_path }}">Tags</a>
+	  -->
     </div>
   
     {{ content }}
@@ -33,16 +35,22 @@
     <div class="footer">
       <div class="contact">
         <p>
-          {{ site.author.name }}<br />
-          {{ site.tagline }}<br />
           <a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a>
         </p>
       </div>
       <div class="contact">
         <p>
-		<a href="http://linkedin.com/in/{{ site.author.linkedin }}/">linkedin.com/in/{{ site.author.linkedin }}</a><br />
-          <a href="http://github.com/{{ site.author.github }}/">github.com/{{ site.author.github }}</a><br />
-          <a href="http://twitter.com/{{ site.author.twitter }}/">twitter.com/{{ site.author.twitter }}</a><br />
+			<!-- LinkedIn -->
+			<a href="http://www.linkedin.com/in/iamggreen">
+				<img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Gary Green's profile on LinkedIn">
+			</a>
+			
+			<!-- GitHub -->
+			<iframe src="http://ghbtns.com/github-btn.html?user=iamggreen&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+
+			<!-- Twitter -->
+			<a href="https://twitter.com/iamggreen" class="twitter-follow-button" data-show-count="false">Follow @iamggreen</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </p>
       </div>
       <div class="rss">
