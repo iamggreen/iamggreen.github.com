@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>iamggreen's Blog</title>
+  <title>Full Text Search - iamggreen's Blog</title>
   <meta name="author" content="Gary Green">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.iamggreen.com">
+  <link rel="canonical" href="http://www.iamggreen.com/blog/2013/12/28/full-text-search">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iamggreen's Blog" type="application/atom+xml">
@@ -76,15 +76,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/12/28/full-text-search/">Full Text Search</a></h1>
+      <h1 class="entry-title">Full Text Search</h1>
     
     
       <p class="meta">
@@ -107,7 +104,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Since I have never had a project that requires full text document search I haven&rsquo;t thought much about how it&rsquo;s done.  After reading an assignment from the MIT OpenCourseware course Software Engineering for Web Applications  I think I have a much better understanding of how it is done and from the reading this would be how I would approach it.</p>
+<div class="entry-content"><p>Since I have never had a project that requires full text document search I haven&rsquo;t thought much about how it&rsquo;s done.  After reading an assignment from the MIT OpenCourseware course Software Engineering for Web Applications  I think I have a much better understanding of how it is done and from the reading this would be how I would approach it.</p>
 
 <p>Let&rsquo;s take for example a database of movies.</p>
 
@@ -141,22 +138,16 @@
 
 <p>MIT OpenCourseware &ndash; <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-171-software-engineering-for-web-applications-fall-2003/index.htm">Software Engineering for Web Applications</a></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/18/webhooks-debugger/">WebHooks Debugger</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Gary Green</span></span>
+
+      
 
 
 
@@ -168,33 +159,38 @@
   
 
 
-<time datetime="2011-12-18T00:00:00-06:00" pubdate data-updated="true">Dec 18<span>th</span>, 2011</time>
-        
-      </p>
+<time datetime="2013-12-28T00:00:00-06:00" pubdate data-updated="true">Dec 28<span>th</span>, 2013</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>I’ve been reading a lot about <a href="http://www.webhooks.org/">WebHooks</a> lately and I’m very intrigued.  It’s a simple idea, basically just an event call over http.  It’s a push model.  You register a url with another application, and when something happens in that application, it does an HTTP post with the information.  So, the idea is simple to grasp but it can do some powerful things.  For example, this WordPress blog has a way to register url’s to call when a new post is added.  I can create a page for it to post to, and then have an e-mail sent to me, post notifications to my favorite social network, or whatever you can dream up.  We aren’t limited to notification either, we can also create composite calls that act on the data sent to it, same idea as XML-RPC.</p>
-
-<p>I came across <a href="http://www.postbin.org/">PostBin</a> which is a WebHook debugger.  You can create a bin and have you application do an HTTP POST to it, and it will store the headers and body data for you.  It has it’s limitations, like being throttled by Google Apps for both data size and bandwidth, it only worked for me about half the time.  I decided to create a <a href="http://www.postbin.org/">PostBin</a> type application for my own purposes.  The functionality is the same as <a href="http://www.postbin.org/">PostBin</a> but instead of having to manually create the bins, mine are automatically created by posting to the url.  Since it’s not a full fledge application, it doesn’t have the security or data limitations.  I’ll put that in for later versions if it gets overused and abused.</p>
-
-<p>Sample application is available at <a href="http://apps.iamggreen.com/postbin">http://apps.iamggreen.com/postbin</a></p>
-
-<p>Source code is available at <a href="https://github.com/iamggreen/PostBinDebugger">https://github.com/iamggreen/PostBinDebugger</a></p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2013/12/28/full-text-search/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2013/12/28/full-text-search/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/18/webhooks-debugger/" title="Previous Post: WebHooks Debugger">&laquo; WebHooks Debugger</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -219,7 +215,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/iamggreen">@iamggreen</a> on GitHub
@@ -252,6 +248,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -266,7 +263,10 @@
       var disqus_shortname = 'iamggreen';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.iamggreen.com/blog/2013/12/28/full-text-search/';
+        var disqus_url = 'http://www.iamggreen.com/blog/2013/12/28/full-text-search/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
