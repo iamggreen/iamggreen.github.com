@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - iamggreen's Blog</title>
+  <title>CSS Declaration Precedence - iamggreen's Blog</title>
   <meta name="author" content="Gary Green">
 
   
-  <meta name="description" content="Blog Archive 2014 CSS Declaration Precedence
-Jan 15 2014 posted in html 2013 Full Text Search
-Dec 28 2013 2011 WebHooks Debugger
-Dec 18 2011 Recent &hellip;">
+  <meta name="description" content="The W3 Specifications on CSS 2.1 say what the CSS Declaration Precedence order but I found it harder to track down what each type of declaration &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Dec 18 2011 Recent &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.iamggreen.com/blog/archives">
+  <link rel="canonical" href="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iamggreen's Blog" type="application/atom+xml">
@@ -80,62 +77,116 @@ Dec 18 2011 Recent &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">CSS Declaration Precedence</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-15T21:48:54-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>The W3 Specifications on CSS 2.1 say what the CSS Declaration Precedence order but I found it harder to track down what each type of declaration actually is.  This is the definitions in order.</p>
 
-  
-  <h2>2014</h2>
+<p><strong>CSS Declaration Precedence Order </strong> (#5 has the highest precedence)</p>
 
-<article>
-  
-<h1><a href="/blog/2014/01/15/css-stylesheet-precedence/">CSS Declaration Precedence</a></h1>
-<time datetime="2014-01-15T21:48:54-06:00" pubdate><span class='month'>Jan</span> <span class='day'>15</span> <span class='year'>2014</span></time>
+<ol>
+<li><p><strong>User Agent Declarations</strong></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/html/'>html</a></span>
-</footer>
+<p>These are the default declarations added by the browser</p></li>
+<li><p><strong>User Normal Declarations</strong></p>
 
+<p>These are the declarations specified by the user in the browser that override the user agent declarations.  Usually in the browser settings/options tabs.</p></li>
+<li><p><strong>Author Normal Declarations</strong></p>
 
-</article>
-
-
-
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/12/28/full-text-search/">Full Text Search</a></h1>
-<time datetime="2013-12-28T00:00:00-06:00" pubdate><span class='month'>Dec</span> <span class='day'>28</span> <span class='year'>2013</span></time>
+<p>These are declarations used by a particular web page.</p></li>
+<li><p><strong>Author Important Declarations</strong>
+Same as Author Normal declarations but with !important added</p></li>
+<li><p><strong>User Important Declarations</strong>
+Same as User Normal declarations but with !important added</p></li>
+</ol>
 
 
-</article>
+<p>References</p>
 
+<p><a href="http://webdesign.about.com/od/css/f/blcssfaqdifusau.htm">What is the difference between a user and an author style sheet?</a></p>
 
-
-  
-  <h2>2011</h2>
-
-<article>
-  
-<h1><a href="/blog/2011/12/18/webhooks-debugger/">WebHooks Debugger</a></h1>
-<time datetime="2011-12-18T00:00:00-06:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2011</span></time>
-
-
-</article>
-
+<p><a href="http://www.w3.org/TR/CSS21/cascade.html#cascading-order">CSS Cascading order</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Gary Green</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-15T21:48:54-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/html/'>html</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/28/full-text-search/" title="Previous Post: Full Text Search">&laquo; Full Text Search</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -215,7 +266,10 @@ Dec 18 2011 Recent &hellip;">
       var disqus_shortname = 'iamggreen';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/';
+        var disqus_url = 'http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Html | iamggreen's Blog]]></title>
+  <link href="http://www.iamggreen.com/blog/categories/html/atom.xml" rel="self"/>
+  <link href="http://www.iamggreen.com/"/>
+  <updated>2014-01-15T22:10:47-06:00</updated>
+  <id>http://www.iamggreen.com/</id>
+  <author>
+    <name><![CDATA[Gary Green]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Declaration Precedence]]></title>
+    <link href="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/"/>
+    <updated>2014-01-15T21:48:54-06:00</updated>
+    <id>http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence</id>
+    <content type="html"><![CDATA[<p>The W3 Specifications on CSS 2.1 say what the CSS Declaration Precedence order but I found it harder to track down what each type of declaration actually is.  This is the definitions in order.</p>
+
+<p><strong>CSS Declaration Precedence Order </strong> (#5 has the highest precedence)</p>
+
+<ol>
+<li><p><strong>User Agent Declarations</strong></p>
+
+<p>These are the default declarations added by the browser</p></li>
+<li><p><strong>User Normal Declarations</strong></p>
+
+<p>These are the declarations specified by the user in the browser that override the user agent declarations.  Usually in the browser settings/options tabs.</p></li>
+<li><p><strong>Author Normal Declarations</strong></p>
+
+<p>These are declarations used by a particular web page.</p></li>
+<li><p><strong>Author Important Declarations</strong>
+Same as Author Normal declarations but with !important added</p></li>
+<li><p><strong>User Important Declarations</strong>
+Same as User Normal declarations but with !important added</p></li>
+</ol>
+
+
+<p>References</p>
+
+<p><a href="http://webdesign.about.com/od/css/f/blcssfaqdifusau.htm">What is the difference between a user and an author style sheet?</a></p>
+
+<p><a href="http://www.w3.org/TR/CSS21/cascade.html#cascading-order">CSS Cascading order</a></p>
+]]></content>
+  </entry>
+  
+</feed>
