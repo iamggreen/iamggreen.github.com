@@ -4,7 +4,7 @@
   <title><![CDATA[iamggreen's Blog]]></title>
   <link href="http://www.iamggreen.com/atom.xml" rel="self"/>
   <link href="http://www.iamggreen.com/"/>
-  <updated>2014-01-15T22:10:47-06:00</updated>
+  <updated>2014-01-18T12:22:25-06:00</updated>
   <id>http://www.iamggreen.com/</id>
   <author>
     <name><![CDATA[Gary Green]]></name>
@@ -12,6 +12,179 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Keyframe Animations]]></title>
+    <link href="http://www.iamggreen.com/blog/2014/01/18/keyframe-animations/"/>
+    <updated>2014-01-18T11:27:15-06:00</updated>
+    <id>http://www.iamggreen.com/blog/2014/01/18/keyframe-animations</id>
+    <content type="html"><![CDATA[<p>CSS3 defines a property called keyframes in order to allow animation to be done via CSS.  While this works in most up-to-date browsers (Chrome, IE9+, Mozilla, Opera) they all require vendor prefixes to work as the standard properties do not currently work on any browser.  All animation properties as well as the @keyframe declaration must have a vendor prefix to work.  The vendor prefixes have been left of in this article for brevity.</p>
+
+<p>To start, we need to create a keyframe animation.  It looks something like this.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@keyframes sunrise {
+</span><span class='line'>        0% {
+</span><span class='line'>                bottom: 0;
+</span><span class='line'>                left: 340px;
+</span><span class='line'>                background: #f00;
+</span><span class='line'>        }
+</span><span class='line'>        
+</span><span class='line'>        33% {
+</span><span class='line'>                bottom: 340px;
+</span><span class='line'>                left: 340px;
+</span><span class='line'>                background: #ffd630;
+</span><span class='line'>        }
+</span><span class='line'>
+</span><span class='line'>        66% {
+</span><span class='line'>                bottom: 340px;
+</span><span class='line'>                left: 40px;
+</span><span class='line'>                background: #ffd630;
+</span><span class='line'>        }
+</span><span class='line'>
+</span><span class='line'>        100% {
+</span><span class='line'>                bottom: 0;
+</span><span class='line'>                left: 40px;
+</span><span class='line'>                background: #f00;
+</span><span class='line'>        }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is pretty self explanatory.  It creates an animation named &ldquo;sunrise&rdquo;.  The percentages define where the transitions need to be at the time interval for that percent.  0% and 100% are where the transition starts and ends. Also, to/from property names can be used interchangeably with 0%/100%, respectively.</p>
+
+<p>Now we need to assign that keyframe animation to a given element of set of elements based on a css selector.  It looks like this.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#sun.animate {
+</span><span class='line'>        animation-name: sunrise;
+</span><span class='line'>        animation-duration: 10s;
+</span><span class='line'>        animation-timing-function: ease;
+</span><span class='line'>        animation-iteration-count: 1;
+</span><span class='line'>        animation-direction: normal;
+</span><span class='line'>        animation-delay: 0;
+</span><span class='line'>        animation-play-state: running;
+</span><span class='line'>        animation-fill-mode: forwards;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The properties are:</p>
+
+<ul>
+<li><strong>animation-name</strong>  &ndash; Specifies the name of the keyframe you want to bind to the selector</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-duration</strong> &ndash; Specifies how many seconds or milliseconds an animation takes to complete</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-timing-function</strong> &ndash; Specifies the speed curve of the animation
+
+<ul>
+<li>Allowed values are ease(default), linear, ease-in, ease-out, ease-in-out, cubic-bezier(Dont ask, no clue?!?!)</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-iteration-count</strong> &ndash; Specifies how many times an animation should be played</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-direction</strong> Specifies whether or not the animation should play in reverse on alternate cycles
+
+<ul>
+<li>Allowed values are normal(default), reverse, alternate, alternate-reverse</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-delay</strong> &ndash; Specifies a delay before the animation will start</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-play-state</strong> Specifies whether the animation is running or paused
+
+<ul>
+<li>Allowed values are running(default), paused</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>animation-fill-mode</strong> Specifies what values are applied by the animation outside the time it is executing
+
+<ul>
+<li>Allowed values are none(default), forwards, backwards, both</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<p>And that&rsquo;s most of what you need to start playing with animations in CSS.  Some of the pages I put together for my learning are below.  Have fun!</p>
+
+<p><a href="https://github.com/iamggreen/KeyFramesHelloWorld">KeyFrameHelloWorld on GitHub</a></p>
+
+<p><a href="http://jsfiddle.net/iamggreen/e7YPB/1/">Keyframe Orbits JSFiddle</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[CSS Declaration Precedence]]></title>
