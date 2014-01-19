@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>CSS Declaration Precedence - iamggreen's Blog</title>
+  <title>OWASP Top 10 for 2013 - iamggreen's Blog</title>
   <meta name="author" content="Gary Green">
 
   
-  <meta name="description" content="The W3 Specifications on CSS 2.1 say what the CSS Declaration Precedence order but I found it harder to track down what each type of declaration &hellip;">
+  <meta name="description" content="OWASP is the Open Web Application Security Project. The OWASP Top Ten project contains the top 10 security vulnerabilities for web applications. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence">
+  <link rel="canonical" href="http://www.iamggreen.com/blog/2014/01/19/owasp-top-10-for-2013">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iamggreen's Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">CSS Declaration Precedence</h1>
+      <h1 class="entry-title">OWASP Top 10 for 2013</h1>
     
     
       <p class="meta">
@@ -97,39 +97,70 @@
   
 
 
-<time datetime="2014-01-15T21:48:54-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+<time datetime="2014-01-19T08:37:48-06:00" pubdate data-updated="true">Jan 19<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The W3 Specifications on CSS 2.1 say what the CSS Declaration Precedence order but I found it harder to track down what each type of declaration actually is.  This is the definitions in order.</p>
-
-<p><strong>CSS Declaration Precedence Order </strong> (#5 has the highest precedence)</p>
+<div class="entry-content"><p>OWASP is the Open Web Application Security Project.  The OWASP Top Ten project contains the top 10 security vulnerabilities for web applications.  Every year they publish this list.  Below is the top 10 vulnerabilities of 2013.</p>
 
 <ol>
-<li><p><strong>User Agent Declarations</strong></p>
+<li><p><strong>Injection</strong></p>
 
-<p>These are the default declarations added by the browser</p></li>
-<li><p><strong>User Normal Declarations</strong></p>
+<p>This is any kind of untrusted data sent to a web application without validation.  SQL Injection is a big one but also consider script injection.  To protect against this use bind variables for SQL and avoid dynamic SQL statements.  Also, validate all data coming from user forms/requests.  Script injection is harmful particularly is it is data coming from the user and being displayed to other&rsquo;s on the browser.  If not properly escaped it can contain scripts that do malicious activities.</p>
 
-<p>These are the declarations specified by the user in the browser that override the user agent declarations.  Usually in the browser settings/options tabs.</p></li>
-<li><p><strong>Author Normal Declarations</strong></p>
+<hr /></li>
+<li><p><strong>Broken Authentication and Session Management</strong></p>
 
-<p>These are declarations used by a particular web page.</p></li>
-<li><p><strong>Author Important Declarations</strong>
-Same as Author Normal declarations but with !important added</p></li>
-<li><p><strong>User Important Declarations</strong>
-Same as User Normal declarations but with !important added</p></li>
+<p>Building custom authentication and session management is hard.  Doing it wrong could leave your application open to allowing intruders access to accounts and user information.  The recommendation is to use tried and true methods and shy away from custom techniques.</p>
+
+<hr /></li>
+<li><p><strong>Cross-Site Scripting (XSS)</strong></p>
+
+<p>XSS and Injection go hand in hand.  This is the most prevalent web application security flaw.  XSS occurs when an application includes user supplied data in a page sent to the browser without properly validating or escaping that content.  The types of XSS flaws are 1) Stored, 2) Reflected, and 3) DOM based XSS</p>
+
+<hr /></li>
+<li><p><strong>Insecure Direct Object References</strong></p>
+
+<p>This type of flaw occurs when a user, usually an authorized system user, changes a parameter that directly refers to a system object to another object the user isn&rsquo;t authorized for.  The application assumes that since the user is authorized they are not also an attacker.  The best way to prevent this is to check access on a per object bases, or use per user or session indirect object references.</p>
+
+<hr /></li>
+<li><p><strong>Security Misconfiguration</strong></p>
+
+<p>This can happen at any level of an application stack including this platform, web server, application server, database, and custom code.  Having an automated repeatable hardening process for servers can help with server misconfiguration.  Also, keep up to date with software updates and patches and run scans and audits periodically.  Also, have a strong application architecture that provides effective, secure separate between components.</p>
+
+<hr /></li>
+<li><p><strong>Sensitive Data Exposure</strong></p>
+
+<p>This happens when an attacker accesses sensitive data at rest, in transit, or in customer browsers.  Usually the result of not encrypting sensitive data.  Also can happen due to choosing weak key generation, management, or algorithm techniques.</p>
+
+<hr /></li>
+<li><p><strong>Missing Function Level Access Control</strong></p>
+
+<p>This is the result of not authenticating users and not protecting privileged data.  Sometimes developers try to leverage security by obscurity and believe that if there are no direct links to a page, they do not need to secure them.</p>
+
+<hr /></li>
+<li><p><strong>Cross-Site Request Forgery (CSRF)</strong></p>
+
+<p>This happens when an attacker creates a forged HTTP request and tricks a victim into submitting them via image tags, XSS, or numerous other techniques.  If the user is authenticated the attack will succeed.  This attack takes advantage of the predictable nature of an http action&rsquo;s parameters and the fact that a browser sends cookie credentials automatically with a  request.  To prevent a CSRF, it requires the inclusion of an unpredictable token in each HTTP request.  This should be unique per session at a minimum.  This token can be included as a hidden field in the page.</p>
+
+<hr /></li>
+<li><p><strong>Using Components with Known Vulnerabilities</strong></p>
+
+<p>This happens when vulnerable components are used and exploited. The vulnerability could be new or it could be old and the components/libraries used are simply not up to date. To protect against this, identify all components used along with versions, monitor the security of these components publicly.  Also, establish security policies governing these components uses and consider adding security wrappers around the components.</p>
+
+<hr /></li>
+<li><p><strong>Unvalidated Redirects and Forwards</strong></p></li>
 </ol>
 
 
-<p>References</p>
+<p>   This type of attack happens with an attacker tricks a user into submitting a request to your website.  The attacker links to invalidated redirects and tricks the victim into clicking it.  Since the link is to a trusted domain the user is more likely to trust the page they are being redirected to.  This could be the attacker&rsquo;s page asking for credentials from your site.  To prevent this type of attack, either do not use redirects and forwards or do not involve user parameters in determining the destination.  At a minimum ensure the supplied url parameter is valid and authorized for the user, preferably using a mapping value rather than a url.</p>
 
-<p><a href="http://webdesign.about.com/od/css/f/blcssfaqdifusau.htm">What is the difference between a user and an author style sheet?</a></p>
+<hr />
 
-<p><a href="http://www.w3.org/TR/CSS21/cascade.html#cascading-order">CSS Cascading order</a></p>
+<p> <a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP Top Ten Project</a></p>
 </div>
 
 
@@ -152,12 +183,12 @@ Same as User Normal declarations but with !important added</p></li>
   
 
 
-<time datetime="2014-01-15T21:48:54-06:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+<time datetime="2014-01-19T08:37:48-06:00" pubdate data-updated="true">Jan 19<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/css/'>css</a>
+    <a class='category' href='/blog/categories/security/'>security</a>
   
 </span>
 
@@ -166,7 +197,7 @@ Same as User Normal declarations but with !important added</p></li>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2014/01/19/owasp-top-10-for-2013/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2014/01/19/owasp-top-10-for-2013/" >Tweet</a>
   
   
   
@@ -175,10 +206,8 @@ Same as User Normal declarations but with !important added</p></li>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/12/28/full-text-search/" title="Previous Post: Full Text Search">&laquo; Full Text Search</a>
+        <a class="basic-alignment left" href="/blog/2014/01/18/keyframe-animations/" title="Previous Post: Keyframe Animations">&laquo; Keyframe Animations</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/01/18/keyframe-animations/" title="Next Post: Keyframe Animations">Keyframe Animations &raquo;</a>
       
     </p>
   </footer>
@@ -277,8 +306,8 @@ Same as User Normal declarations but with !important added</p></li>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/';
-        var disqus_url = 'http://www.iamggreen.com/blog/2014/01/15/css-stylesheet-precedence/';
+        var disqus_identifier = 'http://www.iamggreen.com/blog/2014/01/19/owasp-top-10-for-2013/';
+        var disqus_url = 'http://www.iamggreen.com/blog/2014/01/19/owasp-top-10-for-2013/';
         var disqus_script = 'embed.js';
       
     (function () {

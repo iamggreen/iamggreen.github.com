@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Databases | iamggreen's Blog]]></title>
+  <link href="http://www.iamggreen.com/blog/categories/databases/atom.xml" rel="self"/>
+  <link href="http://www.iamggreen.com/"/>
+  <updated>2014-01-19T12:53:07-06:00</updated>
+  <id>http://www.iamggreen.com/</id>
+  <author>
+    <name><![CDATA[Gary Green]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Full Text Search]]></title>
+    <link href="http://www.iamggreen.com/blog/2013/12/28/full-text-search/"/>
+    <updated>2013-12-28T00:00:00-06:00</updated>
+    <id>http://www.iamggreen.com/blog/2013/12/28/full-text-search</id>
+    <content type="html"><![CDATA[<p>Since I have never had a project that requires full text document search I haven&rsquo;t thought much about how it&rsquo;s done.  After reading an assignment from the MIT OpenCourseware course Software Engineering for Web Applications  I think I have a much better understanding of how it is done and from the reading this would be how I would approach it.</p>
+
+<p>Let&rsquo;s take for example a database of movies.</p>
+
+<p><strong>To insert a movie into our database:</strong></p>
+
+<ol>
+<li><p>Remove stopwords.  These are all words that occur too often to be useful as a search word.  Examples are: &ldquo;a&rdquo;, &ldquo;and&rdquo;, &ldquo;as&rdquo;, &ldquo;at&rdquo;, &ldquo;for&rdquo;, &ldquo;or&rdquo;, &ldquo;the&rdquo;, etc.  When building a full-text search for a particular domain I believe there may be additional domain-specific stopwords as well.</p></li>
+<li><p>Normalize words.  When a user searches for the word &ldquo;worried&rdquo;, we should probably include the words &ldquo;worries&rdquo;, &ldquo;worry&rdquo;.  So we would normalize that to &ldquo;worry&rdquo;.</p></li>
+<li><p>Normalize synonyms.  This is probably optional since it is harder to determine what context a word is used in.  If we used the word &ldquo;like&rdquo; as an adjective then we could also search for the words &ldquo;alike&rdquo;, &ldquo;comparable&rdquo;, etc..  But if it&rsquo;s a verb similar words would be &ldquo;enjoy&rdquo; or &ldquo;admire&rdquo;.</p></li>
+<li><p>Store each word along with its frequency in a database</p></li>
+</ol>
+
+
+<p><strong>To query a movie from our database:</strong></p>
+
+<ol>
+<li><p>Do the same steps 1-3 that we did when we inserted the movie into our database.  Remove stopwords, normalize words and normalize synonyms.</p></li>
+<li><p>Perform the query of the database.  Find the entries and sort by those with the greatest number of word matches followed by the words used most frequently.</p></li>
+</ol>
+
+
+<p>Now this is just a very basic full-text search.  I can think of some optimizations to be made.</p>
+
+<ol>
+<li><p>Dynamically determine stopwords.  Prior to rebuilding the search database analysis could be done beforehand to determine stopwords instead of having a static list of words.  So if i built a database to search words for a computer sales website I may find that the word &ldquo;computer&rdquo; shows up in 90% of the documents so I might add that as a stopword since it&rsquo;s not helpful.</p></li>
+<li><p>Tune the rankings.  Give certain matches different weights based on meeting different criteria.  Matching all words, matching words in order, matching words before normalizing, word frequency.  We could tune our search result rankings by changing how much those criteria matter and determine if that gives us better search results.</p></li>
+</ol>
+
+
+<p>References</p>
+
+<p>MIT OpenCourseware &ndash; Software Engineering for Web Applications &ndash; <a href="http://philip.greenspun.com/seia/search">Search Assignment</a></p>
+
+<p>MIT OpenCourseware &ndash; <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-171-software-engineering-for-web-applications-fall-2003/index.htm">Software Engineering for Web Applications</a></p>
+]]></content>
+  </entry>
+  
+</feed>
