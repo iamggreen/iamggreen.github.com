@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Full Text Search - iamggreen's Blog</title>
+  <title>CSS Transitions - iamggreen's Blog</title>
   <meta name="author" content="Gary Green">
 
   
-  <meta name="description" content="Since I have never had a project that requires full text document search I haven&rsquo;t thought much about how it&rsquo;s done. After reading an &hellip;">
+  <meta name="description" content="The CSS transition property allows the browser to listen to CSS property changes and instead of applying the change immediately, it animates(or &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.iamggreen.com/blog/2013/12/28/full-text-search">
+  <link rel="canonical" href="http://www.iamggreen.com/blog/2014/01/20/css-transitions">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="iamggreen's Blog" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Full Text Search</h1>
+      <h1 class="entry-title">CSS Transitions</h1>
     
     
       <p class="meta">
@@ -97,48 +97,83 @@
   
 
 
-<time datetime="2013-12-28T00:00:00-06:00" pubdate data-updated="true">Dec 28<span>th</span>, 2013</time>
+<time datetime="2014-01-20T17:03:17-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Since I have never had a project that requires full text document search I haven&rsquo;t thought much about how it&rsquo;s done.  After reading an assignment from the MIT OpenCourseware course Software Engineering for Web Applications  I think I have a much better understanding of how it is done and from the reading this would be how I would approach it.</p>
+<div class="entry-content"><p>The CSS transition property allows the browser to listen to CSS property changes and instead of applying the change immediately, it animates(or transitions) the given property from the beginning state to the new state.  Like the animation property, this requires vendor prefixes and works with the most up to date browsers, including IE10+.</p>
 
-<p>Let&rsquo;s take for example a database of movies.</p>
+<p>For the transition to work, you specify a css property for the browser to listen to.  Whenever that css property changes, the browser will apply the given transition.  An example of a transition property is below (Vendor prefixes have been removed for brevity):</p>
 
-<p><strong>To insert a movie into our database:</strong></p>
-
-<ol>
-<li><p>Remove stopwords.  These are all words that occur too often to be useful as a search word.  Examples are: &ldquo;a&rdquo;, &ldquo;and&rdquo;, &ldquo;as&rdquo;, &ldquo;at&rdquo;, &ldquo;for&rdquo;, &ldquo;or&rdquo;, &ldquo;the&rdquo;, etc.  When building a full-text search for a particular domain I believe there may be additional domain-specific stopwords as well.</p></li>
-<li><p>Normalize words.  When a user searches for the word &ldquo;worried&rdquo;, we should probably include the words &ldquo;worries&rdquo;, &ldquo;worry&rdquo;.  So we would normalize that to &ldquo;worry&rdquo;.</p></li>
-<li><p>Normalize synonyms.  This is probably optional since it is harder to determine what context a word is used in.  If we used the word &ldquo;like&rdquo; as an adjective then we could also search for the words &ldquo;alike&rdquo;, &ldquo;comparable&rdquo;, etc..  But if it&rsquo;s a verb similar words would be &ldquo;enjoy&rdquo; or &ldquo;admire&rdquo;.</p></li>
-<li><p>Store each word along with its frequency in a database</p></li>
-</ol>
-
-
-<p><strong>To query a movie from our database:</strong></p>
-
-<ol>
-<li><p>Do the same steps 1-3 that we did when we inserted the movie into our database.  Remove stopwords, normalize words and normalize synonyms.</p></li>
-<li><p>Perform the query of the database.  Find the entries and sort by those with the greatest number of word matches followed by the words used most frequently.</p></li>
-</ol>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#ball {
+</span><span class='line'>    transition-property: left, top;
+</span><span class='line'>    transition-duration: 1s, 1s;
+</span><span class='line'>    transition-timing-function: ease-in, ease-in;
+</span><span class='line'>    transition-delay: 0, 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now this is just a very basic full-text search.  I can think of some optimizations to be made.</p>
+<p>This can also be written shorthand as follows</p>
 
-<ol>
-<li><p>Dynamically determine stopwords.  Prior to rebuilding the search database analysis could be done beforehand to determine stopwords instead of having a static list of words.  So if i built a database to search words for a computer sales website I may find that the word &ldquo;computer&rdquo; shows up in 90% of the documents so I might add that as a stopword since it&rsquo;s not helpful.</p></li>
-<li><p>Tune the rankings.  Give certain matches different weights based on meeting different criteria.  Matching all words, matching words in order, matching words before normalizing, word frequency.  We could tune our search result rankings by changing how much those criteria matter and determine if that gives us better search results.</p></li>
-</ol>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#ball {    
+</span><span class='line'>    transition: left 1s ease-in 0, top 1s ease-in 0
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>References</p>
+<p>The properties required for transition are as follows:</p>
 
-<p>MIT OpenCourseware &ndash; Software Engineering for Web Applications &ndash; <a href="http://philip.greenspun.com/seia/search">Search Assignment</a></p>
+<ul>
+<li><strong>transition-property</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
 
-<p>MIT OpenCourseware &ndash; <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-171-software-engineering-for-web-applications-fall-2003/index.htm">Software Engineering for Web Applications</a></p>
+
+<hr />
+
+<ul>
+<li><strong>transition-duration</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-timing-function</strong> &ndash; Specifies the speed curve of the animation
+
+<ul>
+<li>Allowed values are ease(default), linear, ease-in, ease-out, ease-in-out, cubic-bezier</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-delay</strong> &ndash; Specifies a delay before the animation will start</li>
+</ul>
+
+
+<hr />
+
+<p>The shorthand version is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>transition: transition transition-duration transition-timing-function transition-delay</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See <a href="http://jsfiddle.net/iamggreen/UAyU6/1">My JSFiddle for an example.</a></p>
 </div>
 
 
@@ -161,12 +196,12 @@
   
 
 
-<time datetime="2013-12-28T00:00:00-06:00" pubdate data-updated="true">Dec 28<span>th</span>, 2013</time>
+<time datetime="2014-01-20T17:03:17-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/databases/'>databases</a>
+    <a class='category' href='/blog/categories/css/'>css</a>
   
 </span>
 
@@ -175,7 +210,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2013/12/28/full-text-search/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2013/12/28/full-text-search/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.iamggreen.com/blog/2014/01/20/css-transitions/" data-via="iamggreen" data-counturl="http://www.iamggreen.com/blog/2014/01/20/css-transitions/" >Tweet</a>
   
   
   
@@ -184,10 +219,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/12/18/webhooks-debugger/" title="Previous Post: WebHooks Debugger">&laquo; WebHooks Debugger</a>
+        <a class="basic-alignment left" href="/blog/2014/01/19/owasp-top-10-for-2013/" title="Previous Post: OWASP Top 10 for 2013">&laquo; OWASP Top 10 for 2013</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/01/15/css-stylesheet-precedence/" title="Next Post: CSS Declaration Precedence">CSS Declaration Precedence &raquo;</a>
       
     </p>
   </footer>
@@ -286,8 +319,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.iamggreen.com/blog/2013/12/28/full-text-search/';
-        var disqus_url = 'http://www.iamggreen.com/blog/2013/12/28/full-text-search/';
+        var disqus_identifier = 'http://www.iamggreen.com/blog/2014/01/20/css-transitions/';
+        var disqus_url = 'http://www.iamggreen.com/blog/2014/01/20/css-transitions/';
         var disqus_script = 'embed.js';
       
     (function () {

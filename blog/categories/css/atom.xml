@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Css | iamggreen's Blog]]></title>
   <link href="http://www.iamggreen.com/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://www.iamggreen.com/"/>
-  <updated>2014-01-19T13:00:17-06:00</updated>
+  <updated>2014-01-20T17:13:14-06:00</updated>
   <id>http://www.iamggreen.com/</id>
   <author>
     <name><![CDATA[Gary Green]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Transitions]]></title>
+    <link href="http://www.iamggreen.com/blog/2014/01/20/css-transitions/"/>
+    <updated>2014-01-20T17:03:17-06:00</updated>
+    <id>http://www.iamggreen.com/blog/2014/01/20/css-transitions</id>
+    <content type="html"><![CDATA[<p>The CSS transition property allows the browser to listen to CSS property changes and instead of applying the change immediately, it animates(or transitions) the given property from the beginning state to the new state.  Like the animation property, this requires vendor prefixes and works with the most up to date browsers, including IE10+.</p>
+
+<p>For the transition to work, you specify a css property for the browser to listen to.  Whenever that css property changes, the browser will apply the given transition.  An example of a transition property is below (Vendor prefixes have been removed for brevity):</p>
+
+<p>```</p>
+
+<h1>ball {</h1>
+
+<pre><code>transition-property: left, top;
+transition-duration: 1s, 1s;
+transition-timing-function: ease-in, ease-in;
+transition-delay: 0, 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This can also be written shorthand as follows</p>
+
+<p>```</p>
+
+<h1>ball {</h1>
+
+<pre><code>transition: left 1s ease-in 0, top 1s ease-in 0
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The properties required for transition are as follows:</p>
+
+<ul>
+<li><strong>transition-property</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-duration</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-timing-function</strong> &ndash; Specifies the speed curve of the animation
+
+<ul>
+<li>Allowed values are ease(default), linear, ease-in, ease-out, ease-in-out, cubic-bezier</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-delay</strong> &ndash; Specifies a delay before the animation will start</li>
+</ul>
+
+
+<hr />
+
+<p>The shorthand version is:</p>
+
+<p><code>
+transition: transition transition-duration transition-timing-function transition-delay
+</code></p>
+
+<p>See <a href="http://jsfiddle.net/iamggreen/UAyU6/1">My JSFiddle for an example.</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Keyframe Animations]]></title>
@@ -151,6 +230,12 @@
 
 
 <hr />
+
+<p>The shorthand version for the animation property is:</p>
+
+<p><code>
+animation: animation-name animation-duration animation-timing-function animation-delay animation-play-state animation-fill-direction;
+</code></p>
 
 <p>And that&rsquo;s most of what you need to start playing with animations in CSS.  Some of the pages I put together for my learning are below.  Have fun!</p>
 

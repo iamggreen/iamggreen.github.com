@@ -9,7 +9,7 @@
   <meta name="author" content="Gary Green">
 
   
-  <meta name="description" content="OWASP is the Open Web Application Security Project. The OWASP Top Ten project contains the top 10 security vulnerabilities for web applications. &hellip;">
+  <meta name="description" content="The CSS transition property allows the browser to listen to CSS property changes and instead of applying the change immediately, it animates(or &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,111 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/20/css-transitions/">CSS Transitions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-20T17:03:17-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The CSS transition property allows the browser to listen to CSS property changes and instead of applying the change immediately, it animates(or transitions) the given property from the beginning state to the new state.  Like the animation property, this requires vendor prefixes and works with the most up to date browsers, including IE10+.</p>
+
+<p>For the transition to work, you specify a css property for the browser to listen to.  Whenever that css property changes, the browser will apply the given transition.  An example of a transition property is below (Vendor prefixes have been removed for brevity):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#ball {
+</span><span class='line'>    transition-property: left, top;
+</span><span class='line'>    transition-duration: 1s, 1s;
+</span><span class='line'>    transition-timing-function: ease-in, ease-in;
+</span><span class='line'>    transition-delay: 0, 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This can also be written shorthand as follows</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#ball {    
+</span><span class='line'>    transition: left 1s ease-in 0, top 1s ease-in 0
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The properties required for transition are as follows:</p>
+
+<ul>
+<li><strong>transition-property</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-duration</strong> &ndash; Specifies the name of the CSS property to transition</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-timing-function</strong> &ndash; Specifies the speed curve of the animation
+
+<ul>
+<li>Allowed values are ease(default), linear, ease-in, ease-out, ease-in-out, cubic-bezier</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>transition-delay</strong> &ndash; Specifies a delay before the animation will start</li>
+</ul>
+
+
+<hr />
+
+<p>The shorthand version is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>transition: transition transition-duration transition-timing-function transition-delay</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See <a href="http://jsfiddle.net/iamggreen/UAyU6/1">My JSFiddle for an example.</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -359,6 +464,12 @@
 
 <hr />
 
+<p>The shorthand version for the animation property is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>animation: animation-name animation-duration animation-timing-function animation-delay animation-play-state animation-fill-direction;</span></code></pre></td></tr></table></div></figure>
+
+
 <p>And that&rsquo;s most of what you need to start playing with animations in CSS.  Some of the pages I put together for my learning are below.  Have fun!</p>
 
 <p><a href="https://github.com/iamggreen/KeyFramesHelloWorld">KeyFrameHelloWorld on GitHub</a></p>
@@ -557,6 +668,10 @@ Same as User Normal declarations but with !important added</p></li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/20/css-transitions/">CSS Transitions</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/19/owasp-top-10-for-2013/">OWASP Top 10 for 2013</a>
       </li>
     
@@ -570,10 +685,6 @@ Same as User Normal declarations but with !important added</p></li>
     
       <li class="post">
         <a href="/blog/2013/12/28/full-text-search/">Full Text Search</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/12/18/webhooks-debugger/">WebHooks Debugger</a>
       </li>
     
   </ul>
